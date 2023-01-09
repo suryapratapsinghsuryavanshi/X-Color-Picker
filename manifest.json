@@ -1,0 +1,25 @@
+{
+    "name": "X Color Picker",
+    "description": "X Color Picker is just a tool for everyone who works with color. Pick eye-catchy colors easily from anywhere.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [ "scripting" ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "/images/color-picker.png",
+            "32": "/images/color-picker.png",
+            "48": "/images/color-picker.png",
+            "128": "/images/color-picker.png"
+        }
+    },
+    "icons": {
+        "16": "/images/color-picker.png",
+        "32": "/images/color-picker.png",
+        "48": "/images/color-picker.png",
+        "128": "/images/color-picker.png"
+    }
+}
