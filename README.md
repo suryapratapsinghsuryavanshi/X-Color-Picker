@@ -1,6 +1,6 @@
-<div style="display: flex; align-items: center;">
-    <img height="50px" style="margin-bottom: 0px;" src="./images/color-picker.png"/> <p style="font-size: 50px; margin-top: 10px; margin-left: 15px;">X Color Picker</p>
-</div>
+<img height="50px" style="margin-bottom: -25px;" src="./images/color-picker.png"/>
+
+# X Color Picker
 
 > A color picker chrome extension with new EyeDropper JavaScript API.
 
