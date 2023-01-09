@@ -1,4 +1,4 @@
-<img height="50px" style="margin-bottom: -25px;" src="./images/color-picker.png"/>
+<img height="50px" src="./images/color-picker.png"/>
 
 # X Color Picker
 
