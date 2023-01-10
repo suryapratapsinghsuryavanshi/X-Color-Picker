@@ -11,4 +11,4 @@ X Color Picker is just a tool for everyone who works with color. Pick eye-catchy
 
 <hr>
 
-#### 🖥️ Project Under construction please give your support and contribution on it.
+#### 📑 Project Under construction please give your support and contribution on it.
