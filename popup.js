@@ -1,24 +1,26 @@
 // JavaScript code for managing popup.
 
-let id = document.getElementById("sidebarbutton");
+let sideBarId = document.getElementById("sidebarbutton");
+let isToggle = false;
 
-id.addEventListener("click", sideBarOn)
+sideBarId.addEventListener("click", () => {
+    if(!isToggle) {
+        sideBarOn();
+        isToggle = true;
+    }else {
+        sideBarOf();
+        isToggle = false;
+    }
+});
 
 function sideBarOn(){
-    console.log("ggooo");
-    let button = document.getElementById("sidebarbutton");
     let sidebar = document.getElementById("sideBarOff");
     sidebar.removeAttribute("id");
     sidebar.setAttribute("id","sideBarOn");
-    button.removeAttribute("onclick");
-    button.setAttribute("onclick","sideBarOf()");
 }
 
 function sideBarOf(){
-    let button = document.getElementById("sidebarbutton");
     let sidebar = document.getElementById("sideBarOn");
     sidebar.removeAttribute("id");
-    sidebar.setAttribute("id","sideBarOf");
-    button.removeAttribute("onclick");
-    button.setAttribute("onclick","sideBarOn()");
+    sidebar.setAttribute("id","sideBarOff");
 }

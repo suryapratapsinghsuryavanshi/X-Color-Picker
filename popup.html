@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <title>X Color Picker</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Structure Code for popup menu for choosing and formatting color. -->
     <div class="out">
-    <header>
-        <h2>Color Picker</h2>
-    </header>
-	<div id="main">
-        <div id="mainContainer">
-            <div id="left">
-                <Button style="margin-bottom: 1rem;">
-                    Pick Color
-                </Button>
-                <Button id="sidebarbutton">
-                    Color History
-                </Button>
-            </div>
-            <div id="right">
-                <div id="colorDiv">
-                    
+        <header>
+            <img src="./images/color-picker.svg" alt="logo" width="28px">
+            <h2 style="margin-left: 7px; font-family: 'Ubuntu', sans-serif; font-weight: 400;">X Color Picker</h2>
+        </header>
+        <div id="main">
+            <div id="mainContainer">
+                <div id="left">
+                    <Button style="margin-bottom: 1rem;">
+                        Pick Color
+                    </Button>
+                    <Button id="sidebarbutton">
+                        Color History
+                    </Button>
+                </div>
+                <div id="right">
+                    <div id="colorDiv">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="bottom">
-            <div id="colorCode">
-                <h2>#111100</h2>
+            <div id="bottom">
+                <div id="colorCode">
+                    <h2>#111100</h2>
+                </div>
+                <div id="colorCodeChanger">
+                    <button></button>
+                    <button></button>
+                </div>
             </div>
-            <div id="colorCodeChanger">
-                <button></button>
-                <button></button>
-            </div>
-        </div>
-        <div id="tooBottom">
+            <div id="tooBottom">
 
+            </div>
+            <div id="sideBarOff">
+
+            </div>
         </div>
-        <div id="sideBarOff">
-            
-        </div>
-    </div>
     </div>
     <script src="popup.js"></script>
 </body>
+
 </html>
