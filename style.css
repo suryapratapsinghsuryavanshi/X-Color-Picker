@@ -53,6 +53,10 @@ header{
     width: 0;
 }
 
+.sideBar {
+    transition: all 0.3s ease;
+}
+
 #left{
     display: flex;
     flex-direction: column;
@@ -72,6 +76,7 @@ header{
 }
 
 #left button:active{
+    transition: all 0.2s ease;
     background-color: rgba(235, 234, 234, 0.798);
     color: black;
     border-color: rgba(235, 234, 234, 0.798);

@@ -13,12 +13,12 @@
     <div class="out">
         <header>
             <img src="./images/color-picker.svg" alt="logo" width="28px">
-            <h2 style="margin-left: 7px; font-family: 'Ubuntu', sans-serif; font-weight: 400;">X Color Picker</h2>
+            <h3 style="margin-left: 7px; font-family: 'Ubuntu', sans-serif; font-weight: 400;">X Color Picker</h3>
         </header>
         <div id="main">
             <div id="mainContainer">
                 <div id="left">
-                    <Button style="margin-bottom: 1rem;">
+                    <Button style="margin-bottom: 1rem;" id="color_pick">
                         Pick Color
                     </Button>
                     <Button id="sidebarbutton">
@@ -32,17 +32,21 @@
             </div>
             <div id="bottom">
                 <div id="colorCode">
-                    <h2>#111100</h2>
+                    <h2 id="color_code"></h2>
                 </div>
                 <div id="colorCodeChanger">
-                    <button></button>
-                    <button></button>
+                    <button id="up_arrow">
+                        ˄
+                    </button>
+                    <button id="donw_arrow">
+                        ˅
+                    </button>
                 </div>
             </div>
             <div id="tooBottom">
 
             </div>
-            <div id="sideBarOff">
+            <div class="sideBar" id="sideBarOff">
 
             </div>
         </div>
