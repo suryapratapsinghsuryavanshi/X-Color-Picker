@@ -120,14 +120,12 @@ header{
 
 #colorCode{
     border: 1.5px solid gray;
-    height: inherit;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
-    text-decoration: underline;
-    color: gray;
+    font-size: .8rem;
+    color: #6c6565;
 }
 
 #colorCodeChanger{

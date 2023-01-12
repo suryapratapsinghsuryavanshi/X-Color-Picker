@@ -1,1 +1,0 @@
-// JavaScript code for managing internal interactive.
