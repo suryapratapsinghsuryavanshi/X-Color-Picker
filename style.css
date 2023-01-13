@@ -2,7 +2,7 @@
 
 /* Manage all styles here */
 body{
-    height: 400px;
+    height: 380px;
     width: 300px;
 }
 
@@ -36,16 +36,17 @@ header{
 #mainContainer{
     display: grid;
     grid-template-columns: 4fr 6fr;
-    padding: 0.5rem 0.2rem;
+    padding: 0.5rem 0.2rem 0;
 }
 
 #sideBarOn{
     position: absolute;
     top: 0;
     right: 0;
-    background-color: rgb(170, 170, 170);
+    background-color: #f5f5f5;
     height: 100%;
     width: 70%;
+    border-left: 1.5px solid gray;
 }
 
 #sideBarOff{
@@ -133,15 +134,25 @@ header{
     border-top: 1.5px solid gray;
     border-right: 1.5px solid gray;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: underline;
+    display: grid;
 
 }
 
 #colorCodeChanger button{
-    border: 1px solid gray;
+    color: gray;
     width: 4rem;
-    margin-top: 0.30rem;
+    background: none;
+    border: none;
+    font-size: x-large;
+    font-stretch: extra-expanded;
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 7px;
+}
+
+#colorCodeChanger button:active{
+    background-color: rgba(235, 234, 234, 0.798);
+    color: black;
 }
