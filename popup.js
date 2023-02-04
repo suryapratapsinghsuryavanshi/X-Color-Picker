@@ -1,5 +1,8 @@
 // JavaScript code for managing popup.
 
+// LocalStorage
+let colorStore = "color_store_x_color_picker";
+
 // Color
 let current_selected_color = "#ffb835";
 let color_foramte_count = 0;
@@ -63,6 +66,7 @@ pick_color.addEventListener("click", () => {
         colorFromates.hex = r.sRGBHex;
         colorFromates.rgb = hexToRgb(r.sRGBHex);
         putColor("hex");
+        localStorage.setItem(color_store_x_color_picker, JSON.stringify(colorFromates));
     }).catch((e) => {
         console.log("Error: " + e);
     });
