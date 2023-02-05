@@ -53,10 +53,22 @@ header{
 #sideBarOff{
     height: 0;
     width: 0;
+    display: none;
 }
 
 .sideBar {
     transition: all 0.3s ease;
+}
+
+#side_bar_content {
+    margin: 1rem;
+    word-break: break-all;
+}
+
+.side_bar_content_row {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
 }
 
 #left{
@@ -164,6 +176,7 @@ header{
 }
 
 .colorCodeChanger button{
+    transition: all 0.3s ease;
     color: gray;
     width: 4rem;
     background: none;
@@ -183,13 +196,23 @@ header{
     color: black;
 }
 
+.middle {
+    transition: all 0.3s ease;
+    display: grid;
+    grid-auto-flow: column;
+    margin-left: 12px;
+    margin-right: 12px;
+    overflow: auto;
+
+}
+
+.middle::-webkit-scrollbar {
+    display: none;
+}
+
 .colorPalette {
     width: 30px;
     height: 30px;
+    margin: 5px;
     border-radius: 4px;
-    margin-left: 10px;
-}
-
-.colorPalette:active {
-    border: 1px solid #ffb835 !important;
 }
