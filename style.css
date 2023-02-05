@@ -107,16 +107,14 @@ header{
     margin: 5%;
 }
 
-#tooBottom{
+.bottom_bar{
     border: 1.5px solid gray;
     height: 15vh;
     width: 95%;
-    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
-    text-decoration: underline;
     color: gray;
 }
 
@@ -130,16 +128,42 @@ header{
     color: #6c6565;
 }
 
-#colorCodeChanger{
+.colorCodeChanger{
     border-bottom: 1.5px solid gray;
     border-top: 1.5px solid gray;
     border-right: 1.5px solid gray;
     text-align: center;
     display: grid;
-
 }
 
-#colorCodeChanger button{
+.colorPaletteChanger {
+    border-bottom: 1.5px solid gray;
+    border-top: 1.5px solid gray;
+    border-right: 1.5px solid gray;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+}
+
+.colorPaletteChanger button {
+    color: gray;
+    background: none;
+    border: none;
+    font-size: x-large;
+    font-stretch: extra-expanded;
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.colorPaletteChanger button:active{
+    background-color: rgba(235, 234, 234, 0.798);
+    color: black;
+}
+
+.colorCodeChanger button{
     color: gray;
     width: 4rem;
     background: none;
@@ -154,7 +178,18 @@ header{
     cursor: pointer;
 }
 
-#colorCodeChanger button:active{
+.colorCodeChanger button:active{
     background-color: rgba(235, 234, 234, 0.798);
     color: black;
+}
+
+.colorPalette {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.colorPalette:active {
+    border: 1px solid #ffb835 !important;
 }
