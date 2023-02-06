@@ -15,6 +15,14 @@ let color_foramte_count = 0;
 let colorFromates = { hex: "#ffb835", rgb: "rgb(255, 184, 53)", hsv: "hsv(39, 79%, 100%)", hsl: "hsl(39, 100%, 60%)" };
 let colorFormatesLists = [];
 
+put_color_by_history_or_set = (hex_color) => {
+    colorFromates.hex = hex_color;
+    colorFromates.rgb = hexToRgb(hex_color);
+    colorFromates.hsv = hexToHsv(hex_color);
+    colorFromates.hsl = hexToHsl(hex_color);
+    putColor("hex");
+}
+
 // LocalStorage
 let colorStore = "color_store_x_color_picker";
 let side_bar_content = document.getElementById("side_bar_content");
