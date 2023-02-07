@@ -89,6 +89,7 @@ header{
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 8px;
+    cursor: pointer;
 }
 
 #left{
@@ -231,6 +232,7 @@ header{
 }
 
 .colorPalette {
+    cursor: pointer;
     width: 30px;
     height: 30px;
     margin: 5px;

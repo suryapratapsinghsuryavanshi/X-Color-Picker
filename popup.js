@@ -9,6 +9,38 @@ const min = (list) => {
     return list.sort()[0];
 }
 
+// Sidebar
+let sideBarId = document.getElementById("sidebarbutton");
+let isToggle = false;
+
+sideBarId.addEventListener("click", () => {
+    sideBarOnOff()
+});
+
+const sideBarOnOff = () => {
+    if (!isToggle) {
+        if (sideBarOn) {
+            sideBarOn();
+        }
+        isToggle = true;
+    } else {
+        sideBarOf();
+        isToggle = false;
+    }
+}
+
+function sideBarOn() {
+    let sidebar = document.getElementById("sideBarOff");
+    sidebar.removeAttribute("id");
+    sidebar.setAttribute("id", "sideBarOn");
+}
+
+function sideBarOf() {
+    let sidebar = document.getElementById("sideBarOn");
+    sidebar.removeAttribute("id");
+    sidebar.setAttribute("id", "sideBarOff");
+}
+
 // Color
 let current_selected_color = "#ffb835";
 let color_foramte_count = 0;
@@ -26,16 +58,26 @@ put_color_by_history_or_set = (hex_color) => {
 // LocalStorage
 let colorStore = "color_store_x_color_picker";
 let side_bar_content = document.getElementById("side_bar_content");
+const cb_for_history_load = () => {
+    const side_bar_content_childs = side_bar_content.children
+    for(let ele of side_bar_content_childs) {
+        ele.addEventListener("click", (e) => {
+            put_color_by_history_or_set(rgb2hex(e.target.style.backgroundColor));
+            sideBarOnOff();
+        });
+    }
+}
 const get_color_back = () => {
     let side_bar_content_row_data = "";
     let temp_color_array = JSON.parse(localStorage.getItem(colorStore));
-    console.log(temp_color_array)
+    // console.log(temp_color_array)
     for(let ele of temp_color_array) {
         colorFormatesLists.push(ele);
         let saved_color_set = JSON.parse(ele);
         side_bar_content_row_data += `<p class="side_bar_content_row" style="background: ${saved_color_set.hex};">${saved_color_set.hex}</p>`;
     }
     side_bar_content.innerHTML = side_bar_content_row_data;
+    cb_for_history_load();
 }
 get_color_back();
 
@@ -62,33 +104,6 @@ function putColor(color) {
     document.getElementById("color_code").innerText = colorFromates[color];
 }
 
-let sideBarId = document.getElementById("sidebarbutton");
-let isToggle = false;
-
-sideBarId.addEventListener("click", () => {
-    if (!isToggle) {
-        if (sideBarOn) {
-            sideBarOn();
-        }
-        isToggle = true;
-    } else {
-        sideBarOf();
-        isToggle = false;
-    }
-});
-
-function sideBarOn() {
-    let sidebar = document.getElementById("sideBarOff");
-    sidebar.removeAttribute("id");
-    sidebar.setAttribute("id", "sideBarOn");
-}
-
-function sideBarOf() {
-    let sidebar = document.getElementById("sideBarOn");
-    sidebar.removeAttribute("id");
-    sidebar.setAttribute("id", "sideBarOff");
-}
-
 // Pick Color
 let pick_color = document.getElementById("color_pick");
 pick_color.addEventListener("click", () => {
@@ -109,7 +124,7 @@ pick_color.addEventListener("click", () => {
 // Color Conversion methods.
 const hexToRgb = (hex) => {
     let [has, r, g, b] = [hex.substr(0, 1), hex.substr(1, 2), hex.substr(3, 2), hex.substr(5, 2)]
-    console.log(`rgb(${parseInt(r, 16)}, ${parseInt(g, 16)}, ${parseInt(b, 16)})`)
+    // console.log(`rgb(${parseInt(r, 16)}, ${parseInt(g, 16)}, ${parseInt(b, 16)})`)
     return `rgb(${parseInt(r, 16)}, ${parseInt(g, 16)}, ${parseInt(b, 16)})`
 }
 const hexToHsv = (hex) => {
@@ -144,7 +159,7 @@ const hexToHsv = (hex) => {
     // for Value
     let VALUE = null;
     VALUE = cMax;
-    console.log(Math.round(HUE), Math.round(SATURATION * 100), Math.round(VALUE * 100));
+    // console.log(Math.round(HUE), Math.round(SATURATION * 100), Math.round(VALUE * 100));
     return `hsv(${Math.round(HUE)}, ${Math.round(SATURATION * 100)}%, ${Math.round(VALUE * 100)}%)`
 }
 const hexToHsl = (hex) => {
@@ -180,7 +195,7 @@ const hexToHsl = (hex) => {
         SATURATION = (delta / (1 - Math.abs(2 * LIGHT - 1)))
     }
 
-    console.log(Math.round(HUE), Math.round(SATURATION * 100), Math.round(LIGHT * 100));
+    // console.log(Math.round(HUE), Math.round(SATURATION * 100), Math.round(LIGHT * 100));
     return `hsl(${Math.round(HUE)}, ${Math.round(SATURATION * 100)}%, ${Math.round(LIGHT * 100)}%)`
 }
 
@@ -538,11 +553,22 @@ right_arrow.addEventListener("click", () => {
     }
     newColor(material_color_array.slice(offset - 5, offset));
 });
+const rgb2hex = (rgb) => {
+    return `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`
+}
+const cb = () => {
+    const nodes = document.querySelector("#color_palette_section").children;
+    for(let ele of nodes) {
+        ele.addEventListener("click", (e) => {
+            put_color_by_history_or_set(rgb2hex(e.target.style.backgroundColor));
+        });
+    }
+}
 const gen_color = () => {
     for(let i = 0; i < count_color; i++) {
         let gen_material_color = materialColor();
         if(gen_material_color !== '#ffffff') {
-            material_color_array.push(`<span class="colorPalette" style="background: ${gen_material_color};"></span>`);
+            material_color_array.push(`<span class="colorPalette" style="background-color: ${gen_material_color};"></span>`);
         }
     }
 }
@@ -553,5 +579,6 @@ const newColor = (list) => {
         innerColorHtml += ele;
     }
     color_palette_section.innerHTML = innerColorHtml;
+    cb();
 }
 newColor(material_color_array.slice(0, 5));
