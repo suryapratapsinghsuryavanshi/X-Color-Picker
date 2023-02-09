@@ -68,16 +68,18 @@ const cb_for_history_load = () => {
     }
 }
 const get_color_back = () => {
-    let side_bar_content_row_data = "";
-    let temp_color_array = JSON.parse(localStorage.getItem(colorStore));
-    // console.log(temp_color_array)
-    for(let ele of temp_color_array) {
-        colorFormatesLists.push(ele);
-        let saved_color_set = JSON.parse(ele);
-        side_bar_content_row_data += `<p class="side_bar_content_row" style="background: ${saved_color_set.hex};">${saved_color_set.hex}</p>`;
+    if(localStorage.getItem(colorStore)) {
+        let side_bar_content_row_data = "";
+        let temp_color_array = JSON.parse(localStorage.getItem(colorStore));
+        // console.log(temp_color_array)
+        for(let ele of temp_color_array) {
+            colorFormatesLists.push(ele);
+            let saved_color_set = JSON.parse(ele);
+            side_bar_content_row_data += `<p class="side_bar_content_row" style="background: ${saved_color_set.hex};">${saved_color_set.hex}</p>`;
+        }
+        side_bar_content.innerHTML = side_bar_content_row_data;
+        cb_for_history_load();
     }
-    side_bar_content.innerHTML = side_bar_content_row_data;
-    cb_for_history_load();
 }
 get_color_back();
 
