@@ -1,7 +1,7 @@
 {
     "name": "X Color Picker",
     "description": "This is just a tool for everyone who works with color. Pick eye-catchy colors easily from anywhere in web page.",
-    "version": "1.0",
+    "version": "1.0.1",
     "manifest_version": 3,
     "background": {
         "service_worker": "background.js"
